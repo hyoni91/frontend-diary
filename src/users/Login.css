@@ -1,0 +1,68 @@
+
+.login-div {
+    width: 40vw;
+    height: 50vh;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+    margin-top: 10vw;
+}
+
+.login-div h3{
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+
+}
+
+.login-content{
+    width: 100%;
+}
+
+.login-content > input{
+    width: 30vw;
+    height: 6vh;
+    padding: 5px;
+    margin-bottom: 0.5vw;
+    outline: none;
+}
+
+.login-content button{
+    width: 31vw;
+    padding: 15px;
+    margin-top: 0.7vw;
+    margin-bottom: 0.5vw;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    
+}
+
+.login-content span{
+    margin-right: 3vw;
+    border-bottom: 1px solid ;
+    cursor: pointer;
+} 
+
+.login-content span:hover{
+    color: grey;
+}
+
+
+
+@media (max-width: 600px) {
+    .login-div {
+        width: 80vw;
+        height: auto;
+    
+    }
+
+    .login-content > input {
+        width: 70vw;
+    }
+
+    .login-content button {
+        width: 72vw;
+    }
+}
+

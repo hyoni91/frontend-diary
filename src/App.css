@@ -1,0 +1,19 @@
+
+.App {
+ width: 90vw;
+ margin: auto;
+}
+
+.main-bar{
+  border-bottom: 1px solid darkgrey;
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-bar span{
+  cursor: pointer;
+  margin-right: 10px;
+}

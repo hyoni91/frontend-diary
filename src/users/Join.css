@@ -1,0 +1,78 @@
+.join-div {
+    width: 40vw;
+    height: 60vh;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+    margin-top: 10vw;
+}
+
+.join-div h3{
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+
+}
+
+.join-content{
+    width: 100%;
+}
+
+.join-table,
+.join-table tr,
+.join-table td{
+ text-align: center;
+}
+
+.join-table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.join-table td{
+    border: 1px solid;
+}
+    
+
+.join-table input{
+    width: 30vw;
+    border: none;
+    height: 5vh;
+    padding: 5px;
+    outline: none;
+}
+
+.join-btn{
+    /* display: flex; */
+    /* gap: 10px; */
+    /* justify-content: center; */
+    margin-top: 15px;
+}
+
+.join-btn button{
+    padding: 15px;
+    margin-top: 0.7vw;
+    margin-bottom: 0.5vw;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    
+}
+
+
+/* 유효성 검사 글자 */
+.feedback{
+    font-size: 0.65rem;
+    margin-top: 3px;
+    visibility: hidden;
+  }
+  
+  .feedback.error{
+    color: red;
+    visibility: visible;
+  }
+  
+  .feedback.good{
+    color: rgba(33, 156, 49);
+    visibility: visible;
+  }
