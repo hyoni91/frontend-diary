@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({setLoginInfo}) => {
+    const navigate = useNavigate()
 
    const [loginData, setLoginData] = useState({
     mail : '',
@@ -36,6 +38,7 @@ const Login = ({setLoginInfo}) => {
 
             window.sessionStorage.setItem('loginInfo',JSON.stringify(loginInfo))
             setLoginInfo(loginInfo)
+            navigate('/')
         }
     })
     .catch((error)=>{
