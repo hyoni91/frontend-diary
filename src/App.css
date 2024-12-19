@@ -4,6 +4,16 @@
  margin: auto;
 }
 
+span{
+  cursor: pointer;
+}
+
+ul,li{
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+}
+
 .main-bar{
   border-bottom: 1px solid darkgrey;
   height: 5vh;
@@ -17,3 +27,41 @@
   cursor: pointer;
   margin-right: 10px;
 }
+
+.main-menu{
+  display: flex;
+  gap: 5px;
+  justify-content: start;
+  gap: 6vw;
+  /* border: 1px solid black; */
+  height: 80vh;
+}
+
+.main-menu > div:first-child{
+  padding: 10px;
+}
+
+.menu-bar span {
+  font-size: 1.5em;
+}
+
+.menu-bar{
+  position: relative;
+}
+
+.menu-down{
+  width: 6vw;
+  padding: 2px;
+  border: 1px solid darkgray;
+  position: absolute;
+  left: 5vw;
+  border-radius: 5px;
+}
+
+li:hover{
+  background-color: lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+

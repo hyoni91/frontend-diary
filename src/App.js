@@ -9,6 +9,8 @@ function App() {
 const navigate = useNavigate();
 const [loginInfo, setLoginInfo] = useState({})
 
+const [dropmenu, setDropMenu] = useState(false)
+
 useEffect(()=>{
   const sessionStorage = window.sessionStorage.getItem('loginInfo')
 
@@ -26,7 +28,7 @@ useEffect(()=>{
         </h2>
         <div>
           {
-            loginInfo == ' '?
+            loginInfo.userName == null?
             <>
               <span onClick={()=>{navigate('/login' )}}>Login</span>
               <span onClick={()=>{navigate('/join')}}>Join</span>
@@ -42,14 +44,38 @@ useEffect(()=>{
         </div>    
       </div>
       <div className='main-menu'>
-        <div>공개일기</div>
-        <div>개인일기</div>        
+        <div>
+          <div className='menu-bar'>
+            <span onClick={()=>setDropMenu(!dropmenu)}>
+              <i className="bi bi-list" />
+            </span>
+          </div>
+          {
+            dropmenu?
+            <div  className='menu-down'>
+            <ul>
+              <li>
+                Secret
+              </li>
+             <li>
+                Public
+             </li>
+            </ul>
+          </div> 
+            :
+            null
+          }
+          
+        </div>
+        <div>
+           <Routes>
+            <Route path='/login' element={<Login setLoginInfo={setLoginInfo}/>}/>
+             <Route path='/join' element={<Join />}/>
+            <Route path='/myDiary/:userNum' element={<Diary loginInfo={loginInfo}/>}/>
+           </Routes>   
+        </div>
       </div>
-    <Routes>
-      <Route path='/login' element={<Login setLoginInfo={setLoginInfo}/>}/>
-      <Route path='/join' element={<Join />}/>
-      <Route path='/myDiary/:userNum' element={<Diary loginInfo={loginInfo}/>}/>
-    </Routes>
+    
     
     </div>
   );
