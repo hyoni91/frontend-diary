@@ -37,7 +37,12 @@ useEffect(()=>{
             :
             <>
               <span onClick={()=>{navigate(`/myDiary/${loginInfo.userNum}`)}}>{loginInfo.userName}</span>
-              <span>logout</span>
+              <span onClick={()=>{
+                window.sessionStorage.removeItem('loginInfo')
+                setLoginInfo({})
+              }}>
+                logout
+              </span>
             </>
 
           }
