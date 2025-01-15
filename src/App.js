@@ -4,12 +4,13 @@ import Login from './users/Login';
 import Join from './users/Join';
 import { useEffect, useState } from 'react';
 import Diary from './users/ Diary';
+import Slider from "react-slick";
+import UsersLayout from './users/UsersLayout';
 
 function App() {
 const navigate = useNavigate();
 const [loginInfo, setLoginInfo] = useState({})
 
-const [dropmenu, setDropMenu] = useState(false)
 
 useEffect(()=>{
   const sessionStorage = window.sessionStorage.getItem('loginInfo')
@@ -45,32 +46,16 @@ useEffect(()=>{
       </div>
       <div className='main-menu'>
         <div>
-          <div className='menu-bar'>
-            <span onClick={()=>setDropMenu(!dropmenu)}>
-              <i className="bi bi-list" />
-            </span>
-          </div>
-          {
-            dropmenu?
-            <div  className='menu-down'>
-            <ul>
-              <li>
-                Secret
-              </li>
-             <li>
-                Public
-             </li>
-            </ul>
-          </div> 
-            :
-            null
-          }
-          
+          <ul>
+            <li>みんなの日記</li>
+            <li>私の日記</li>
+          </ul>
         </div>
         <div>
            <Routes>
+            <Route path='/' element={<UsersLayout />}/>
             <Route path='/login' element={<Login setLoginInfo={setLoginInfo}/>}/>
-             <Route path='/join' element={<Join />}/>
+            <Route path='/join' element={<Join />}/>  
             <Route path='/myDiary/:userNum' element={<Diary loginInfo={loginInfo}/>}/>
            </Routes>   
         </div>

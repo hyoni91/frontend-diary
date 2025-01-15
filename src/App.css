@@ -1,6 +1,7 @@
-
+/* 
 .App {
  width: 90vw;
+ height: 100vh;
  margin: auto;
 }
 
@@ -16,7 +17,7 @@ ul,li{
 
 .main-bar{
   border-bottom: 1px solid darkgrey;
-  height: 5vh;
+  height: 8vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -33,35 +34,134 @@ ul,li{
   gap: 5px;
   justify-content: start;
   gap: 6vw;
-  /* border: 1px solid black; */
-  height: 80vh;
+  height: 100%;
 }
 
 .main-menu > div:first-child{
-  padding: 10px;
+  width: 15%;
+  padding: 8px;
 }
 
-.menu-bar span {
-  font-size: 1.5em;
+.main-menu > div:last-child{
+  width: 80%;
 }
 
-.menu-bar{
-  position: relative;
-}
-
-.menu-down{
-  width: 6vw;
-  padding: 2px;
-  border: 1px solid darkgray;
-  position: absolute;
-  left: 5vw;
-  border-radius: 5px;
+.main-menu > div > ul > li{
+  padding: 15px;
+  font-size: 1em;
 }
 
 li:hover{
-  background-color: lightgray;
-  border-radius: 5px;
+  border-bottom: 1px solid darkgray;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+ */
+
+
+ /* 반응형 */
+ .App {
+  width: 90%;
+  max-width: 1200px;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+span {
   cursor: pointer;
 }
 
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.main-bar {
+  border-bottom: 1px solid darkgrey;
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.main-bar span {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.main-menu {
+  display: flex;
+  gap: 5px;
+  justify-content: start;
+  gap: 6vw;
+  height: calc(100% - 8vh);
+}
+
+.main-menu > div:first-child {
+  width: 15%;
+  padding: 8px;
+}
+
+.main-menu > div:last-child {
+  width: 80%;
+}
+
+.main-menu > div > ul > li {
+  padding: 15px;
+  font-size: 1em;
+}
+
+li:hover {
+  border-bottom: 1px solid darkgray;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 반응형 스타일 추가 */
+@media (max-width: 768px) {
+  .main-bar {
+    flex-direction: row;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .main-menu {
+    flex-direction: row;
+  }
+
+  .main-menu > div > ul > li {
+    padding: 5px;
+    font-size: 0.8em;
+  }
+
+  .main-menu > div:first-child{
+    width: 15%;
+  }
+  .main-menu > div:last-child {
+    width: 70%;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .main-bar {
+    padding: 5px;
+    text-align: center;
+  }
+
+  .main-bar span {
+    margin: 5px 0;
+  }
+
+  .main-menu > div > ul > li {
+    font-size: 0.9em;
+  }
+}
 

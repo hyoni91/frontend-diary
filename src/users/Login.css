@@ -1,18 +1,21 @@
 
 .login-div {
-    width: 40vw;
+    width: 80%;
+    max-width: 700px; 
     height: 50vh;
     border: 1px solid darkgray;
     border-radius: 5px;
     margin: auto;
     text-align: center;
-    margin-top: 10vw;
+    margin-top: 2vw;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .login-div h3{
-    margin-top: 3vw;
-    margin-bottom: 2vw;
-
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
 .login-content{
@@ -20,49 +23,96 @@
 }
 
 .login-content > input{
-    width: 30vw;
-    height: 6vh;
+    width: 60%;
+    height: 3em;
     padding: 5px;
-    margin-bottom: 0.5vw;
     outline: none;
+    margin-bottom: 1em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.login-content > input:focus {
+    border: 1px solid #000000;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .login-content button{
-    width: 31vw;
+    width: 61%;
     padding: 15px;
-    margin-top: 0.7vw;
-    margin-bottom: 0.5vw;
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
-    
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.login-content button:hover {
+    background-color: #0056b3;
 }
 
 .login-content span{
-    margin-right: 3vw;
-    border-bottom: 1px solid ;
+    display: inline-block;
+    margin-right: 2em;
+    border-bottom: 1px solid transparent;
     cursor: pointer;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 } 
 
-.login-content span:hover{
+.login-content span:hover {
     color: grey;
+    border-bottom: 1px solid grey;
 }
 
-
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .login-div {
-        width: 80vw;
-        height: auto;
-    
+        width: 80%;
+        padding: 15px;
     }
 
-    .login-content > input {
-        width: 70vw;
+    .login-div h3{
+        font-size: 1.2em;
     }
 
+    .login-content > input, 
     .login-content button {
-        width: 72vw;
+        width: 70%;
+        font-size: 0.8em;
+    }
+
+    .login-content span {
+        margin-right: 1em;
+        font-size: 0.7em;
     }
 }
 
+@media (max-width: 480px) {
+    .login-div {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .login-div h3{
+        font-size: 1.2em;
+    }
+
+    .login-content > input, 
+    .login-content button {
+        width: 70%;
+        font-size: 0.8em;
+    }
+
+    .login-content span {
+        margin-right: 1em;
+        font-size: 0.7em;
+    }
+}
