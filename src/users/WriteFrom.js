@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import './Diary.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const  Diary = ({loginInfo}) => {
+const WriteFrom = ({loginInfo}) => {
     console.log(loginInfo.userNum)
     const [startDate, setStartDate] = useState(new Date());
     //오늘의 감정
@@ -15,8 +14,10 @@ const  Diary = ({loginInfo}) => {
     const [writeInfo, setWriteInfo] = useState({
         title : '',
         content : '',
-        dDate : '',
-        cateNum : 0
+        dDate : startDate.toISOString().split('T')[0],
+        cateNum : 0,
+        userNum : loginInfo? loginInfo.userNum : 0,
+        secret : 'N'
     })
 
     //writeInfo 실시간갱신
@@ -50,18 +51,17 @@ const  Diary = ({loginInfo}) => {
         })
     },[])
 
+    console.log(writeInfo)
+
     //일기저장버튼
     const saveButton = ()=>{
-        axios.post('')
+        axios.post('/writeFrom', writeInfo)
         .then((res)=>{})
         .catch((error)=>{
             alert(error)
             console.log(error)
         })
     }
-
-
-
     return (
         <div className='diary-div'>
           <h2>My Diary</h2>
@@ -99,10 +99,10 @@ const  Diary = ({loginInfo}) => {
                 />
               </div>
               <div>
-                <button type='button'>Save</button>
+                <button type='button' onClick={()=>{saveButton()}}>Save</button>
               </div>    
         </div>
     );
 };
 
-export default  Diary;
+export default WriteFrom;

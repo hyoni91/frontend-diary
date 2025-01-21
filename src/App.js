@@ -3,9 +3,10 @@ import './App.css';
 import Login from './users/Login';
 import Join from './users/Join';
 import { useEffect, useState } from 'react';
-import Diary from './users/ Diary';
 import Slider from "react-slick";
 import UsersLayout from './users/UsersLayout';
+import OpenSpace from './users/OpenSpace';
+import WriteFrom from './users/WriteFrom';
 
 function App() {
 const navigate = useNavigate();
@@ -61,7 +62,8 @@ useEffect(()=>{
             <Route path='/' element={<UsersLayout />}/>
             <Route path='/login' element={<Login setLoginInfo={setLoginInfo}/>}/>
             <Route path='/join' element={<Join />}/>  
-            <Route path='/myDiary/:userNum' element={<Diary loginInfo={loginInfo}/>}/>
+            <Route path='/myDiary/:userNum' element={<WriteFrom loginInfo={loginInfo}/>}/>
+            <Route path='/OpenDiaryList' element={<OpenSpace/>}/>
            </Routes>   
         </div>
       </div>

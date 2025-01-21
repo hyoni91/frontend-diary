@@ -2,8 +2,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Join.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Join(props) {
+    const navigate = useNavigate();
 
     const [joinData, setJoinData] = useState({
         userName : '',
@@ -39,7 +41,7 @@ function Join(props) {
 
         switch (name) {
             case 'mail':
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const emailRegex =  /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
                 errors.mail = emailRegex.test(value) ? '' : '有効なメールを入力してください。';
                 break;
 
@@ -111,6 +113,8 @@ function Join(props) {
             axios.post('join', joinData)
             .then((res)=>{
                 alert('WELCOME!')
+                navigate('/login')
+                
             })
             .catch((error)=>{
                 alert(error)
