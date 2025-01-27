@@ -69,7 +69,7 @@ const Login = ({setLoginInfo}) => {
                 <div>
                     <button type='button' onClick={()=>{login()}}>Sign in</button>
                 </div>
-                <span>forgot your ID?</span>
+                <span onClick={()=>{navigate("/resetPw")}}>forgot your PW?</span>
                 <span>Sign up</span>
             </div>
         </div>

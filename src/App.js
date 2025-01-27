@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import UsersLayout from './users/UsersLayout';
 import OpenSpace from './users/OpenSpace';
 import WriteFrom from './users/WriteFrom';
+import ResetPw from './users/ResetPw';
 
 function App() {
 const navigate = useNavigate();
@@ -53,7 +54,7 @@ useEffect(()=>{
       <div className='main-menu'>
         <div>
           <ul>
-            <li>みんなの日記</li>
+            <li onClick={()=>{navigate("OpenDiaryList")}}>みんなの日記</li>
             <li>私の日記</li>
           </ul>
         </div>
@@ -64,6 +65,7 @@ useEffect(()=>{
             <Route path='/join' element={<Join />}/>  
             <Route path='/myDiary/:userNum' element={<WriteFrom loginInfo={loginInfo}/>}/>
             <Route path='/OpenDiaryList' element={<OpenSpace/>}/>
+            <Route path='/resetPw' element={<ResetPw />}/>
            </Routes>   
         </div>
       </div>

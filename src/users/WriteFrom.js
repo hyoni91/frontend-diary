@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { data } from 'react-router-dom';
 
 const WriteFrom = ({loginInfo}) => {
     console.log(loginInfo.userNum)
@@ -25,13 +26,13 @@ const WriteFrom = ({loginInfo}) => {
         const {name, value} = e.target
         setWriteInfo({
             ...writeInfo,
-            [name]: value
+            [name]: value,
         });
     }
 
     //날짜 선택
     const handleDateChange = (date) => {
-        const formattedDate = date.toISOString().split('T')[0]; //YYYY-DD-MM
+        const formattedDate = date.toISOString().split('T')[0]; 
         setStartDate(date); // 선택 날짜 
         setWriteInfo((prev) => ({ // writeInfo갱신
             ...prev,
@@ -56,12 +57,23 @@ const WriteFrom = ({loginInfo}) => {
     //일기저장버튼
     const saveButton = ()=>{
         axios.post('/writeFrom', writeInfo)
-        .then((res)=>{})
+        .then((res)=>{
+          alert("Success")
+          setWriteInfo({
+            title : '',
+            content : '',
+            dDate : startDate.toISOString().split('T')[0],
+            cateNum : 0,
+            userNum : loginInfo? loginInfo.userNum : 0,
+            secret : 'N' 
+          })
+        })
         .catch((error)=>{
             alert(error)
             console.log(error)
         })
     }
+
     return (
         <div className='diary-div'>
           <h2>My Diary</h2>
@@ -70,9 +82,14 @@ const WriteFrom = ({loginInfo}) => {
                   type='text' 
                   placeholder='title' 
                   name='title'
+                  value={writeInfo.title}
                   onChange={(e)=>{writeHandle(e)}}
               />
-              <select name='cateNum' onChange={(e)=>{writeHandle(e)}}>
+              <select 
+                name='cateNum' 
+                onChange={(e)=>{writeHandle(e)}}
+                value={writeInfo.cateNum}
+              >
                 <option value={0}>--emotion--</option>
                   {
                     cate.map((cate, i) => (
@@ -87,14 +104,15 @@ const WriteFrom = ({loginInfo}) => {
                   onChange={(date) => {
                     handleDateChange(date) 
                    }}
-			            dateFormat="yyyy-MM-dd"
+			            dateFormat="YYYY-MM-DD"
                   showTimeSelect={false}
 			          />
             </div>
               <div className='diary-content'>
                 <textarea 
                   placeholder='content' 
-                  name='content'  
+                  name='content'
+                  value={writeInfo.content}
                   onChange={(e)=>{writeHandle(e)}}
                 />
               </div>
